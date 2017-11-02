@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+  python:
+    build: ./python
+    volumes:
+      - ../python:/python
+    ports:
+        - 5000:5000
+    working_dir: /python
+    environment:
+      - FLASK_APP=run.py
+      - FLASK_DEBUG=1
+    command: python3 -m flask run -h 0.0.0.0
+
+  mongo:
+    image: mongo:3.4.9-jessie
+    ports:
+        - 27017:27017
+    volumes:
+      - ../data/mongo:/data/db
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/stdout
+    command: mongod --smallfiles --logpath=/dev/stdout

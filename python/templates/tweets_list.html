@@ -1,0 +1,14 @@
+{% for tweet in tweets %}
+    <div>
+        <p>{{ tweet.id }}</p>
+        <h4>{{ tweet.twitter_username }}</h4>
+        <p>{{ tweet.twitter_id }}</p>
+        <p>{{ tweet.text }}</p>
+        <form action="/delete" method="POST">
+            <span class="hidden">
+                <input type="hidden" name="tweet_id" value="{{ tweet.id }}">
+            </span>
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+{% endfor %}
