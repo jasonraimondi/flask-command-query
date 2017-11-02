@@ -1,7 +1,0 @@
-{
-    "python.linting.pylintEnabled": false,
-    "files.exclude": {
-        "**/**/__pycache__": true,
-        "**/**/.idea": true
-    }
-}
